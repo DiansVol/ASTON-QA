@@ -1,15 +1,12 @@
 public class Zad12 {
-    public static void main(String[] args) {
-        int[] array = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
-        for (int i = 0; i < array.length; i++) {
 
-            if (array[i] < 6) {
-                array[i] = 2;
-            }
-        }
-        System.out.println("Измененный массив: ");
-        for (int num : array) {
-            System.out.print(num + " ");
-        }
+    public static boolean isLeapYear(int year) {
+        return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
+    }
+
+    public static void main(String[] args) {
+        int yearToCheck = 2024; // Example year
+        boolean isLeap = isLeapYear(yearToCheck);
+        System.out.println(yearToCheck + " is a leap year: " + isLeap);
     }
 }
