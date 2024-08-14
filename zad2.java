@@ -70,7 +70,7 @@ public class zad2 {
 
         try {
             int sum = processArray(invalidArray);
-            System.out.println("Сумма элементов: " + sum); // Не должно быть выведено
+            System.out.println("Сумма элементов: " + sum); 
         } catch (MyArraySizeException e) {
             System.err.println("Ошибка размера: " + e.getMessage());
         } catch (MyArrayDataException e) {
