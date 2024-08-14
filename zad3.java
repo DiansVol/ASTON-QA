@@ -54,13 +54,13 @@ public class zad3 {
         String[][] invalidArray1 = {
                 {"1", "2", "3", "4"},
                 {"5", "6", "7", "8"},
-                {"9", "10", "a", "12"}, // Некорректные данные
+                {"9", "10", "a", "12"}, 
                 {"13", "14", "15", "16"}
         };
 
         String[][] invalidArray2 = {
                 {"1", "2", "3", "4"},
-                {"5", "6", "7", "8"} // Неверный размер
+                {"5", "6", "7", "8"} 
         };
 
         try {
@@ -74,7 +74,7 @@ public class zad3 {
 
         try {
             int sum = processArray(invalidArray1);
-            System.out.println("Сумма элементов: " + sum); // Не должно быть выведено
+            System.out.println("Сумма элементов: " + sum); 
         } catch (MyArraySizeException e) {
             System.err.println("Ошибка размера: " + e.getMessage());
         } catch (MyArrayDataException e) {
@@ -83,7 +83,7 @@ public class zad3 {
 
         try {
             int sum = processArray(invalidArray2);
-            System.out.println("Сумма элементов: " + sum); // Не должно быть выведено
+            System.out.println("Сумма элементов: " + sum); 
         } catch (MyArraySizeException e) {
             System.err.println("Ошибка размера: " + e.getMessage());
         } catch (MyArrayDataException e) {
