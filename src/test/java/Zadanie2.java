@@ -19,7 +19,6 @@ public class Zadanie2 {
 
     @Test
     public void testLogos() {
-        // Открываем сайт mts.by
         driver.get("https://mts.by/");
 
         WebElement partnersBlock = driver.findElement(By.cssSelector("#pay-section > div > div > div.col-12.col-xl-8 > section > div > div.pay__partners"));
