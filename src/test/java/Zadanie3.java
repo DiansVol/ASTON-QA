@@ -19,13 +19,10 @@ public class Zadanie3 {
 
     @Test
     public void testLink() {
-        // Открываем сайт mts.by
         driver.get("https://mts.by/");
 
-        // Находим ссылку "Подробнее о сервисе"
         WebElement link = driver.findElement(By.cssSelector("#pay-section > div > div > div.col-12.col-xl-8 > section > div > a"));
 
-        // Проверяем, что ссылка ведет на правильный адрес
         String actualUrl = link.getAttribute("href");
         String expectedUrl = "https://mts.by/ru/personal/payments-and-transfers/online-top-up";
         assertEquals("Ссылка ведет на неправильный адрес", expectedUrl, actualUrl);
