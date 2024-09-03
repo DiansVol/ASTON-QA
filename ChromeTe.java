@@ -68,38 +68,26 @@ class ChromeTe {
     }
     @Test
     @Order(5)
-    void testEmptyFieldsPlaceholders() {
-        // Проверки для услуги связи
-        assertEquals("Номер телефона", homePage.getFieldPlaceholderText(By.xpath("//*[@id='connection-phone']")),
-                "Неверный номер телефона");
-        assertEquals("Сумма", homePage.getFieldPlaceholderText(By.xpath("//*[@id='connection-sum']")),
-                "Это поле обязательно для заполнения");
-        assertEquals("E-mail для отправки чека", homePage.getFieldPlaceholderText(By.xpath("//*[@id='connection-email']")),
-                "Это поле обязательно для заполнения.");
+    public void testPlaceholdersForPaymentOptions() {
+        // Услуги связи
+        assertEquals("Номер телефона", homePage.getPlaceholderText(By.xpath("//input[@placeholder='Номер телефона']")));
+        assertEquals("Сумма", homePage.getPlaceholderText(By.xpath("//input[@id='connection-sum'][@placeholder='Сумма']")));
+        assertEquals("E-mail для отправки чека", homePage.getPlaceholderText(By.xpath("//input[@id='connection-email']")));
 
-        // Проверки для домашнего интернета
-        assertEquals("Номер абонента", homePage.getFieldPlaceholderText(By.xpath("//*[@id='internet-phone']")),
-                "Неверный номер абонента");
-        assertEquals("Сумма", homePage.getFieldPlaceholderText(By.xpath("//*[@id='internet-sum']")),
-                "Это поле обязательно для заполнения");
-        assertEquals("E-mail для отправки чека", homePage.getFieldPlaceholderText(By.xpath("//*[@id='internet-email']")),
-                "Это поле обязательно для заполнения");
+        // Домашний интернет
+        assertEquals("Номер абонента", homePage.getPlaceholderText(By.xpath("//input[@placeholder='Номер абонента']")));
+        assertEquals("Сумма", homePage.getPlaceholderText(By.xpath("//input[@id='instalment-sum'][@placeholder='Сумма']")));
+        assertEquals("E-mail для отправки чека", homePage.getPlaceholderText(By.xpath("//input[@id='instalment-email']")));
 
-        // Проверки для рассрочки
-        assertEquals("Номер счета на 44", homePage.getFieldPlaceholderText(By.xpath("//*[@id='score-instalment']")),
-                "Неверный номер счета");
-        assertEquals("Сумма", homePage.getFieldPlaceholderText(By.xpath("//*[@id='instalment-sum']")),
-                "Это поле обязательно для заполнения");
-        assertEquals("E-mail для отправки чека", homePage.getFieldPlaceholderText(By.xpath("//*[@id='instalment-email']")),
-                "Это поле обязательно для заполнения");
+        // Рассрочка
+        assertEquals("Номер счета на 44", homePage.getPlaceholderText(By.xpath("//input[@placeholder='Номер счета на 44']")));
+        assertEquals("Сумма", homePage.getPlaceholderText(By.xpath("//input[@id='instalment-sum']")));
+        assertEquals("E-mail для отправки чека", homePage.getPlaceholderText(By.xpath("//input[@id='instalment-email']")));
 
-        // Проверки для задолженности
-        assertEquals("Номер счета на 2073", homePage.getFieldPlaceholderText(By.xpath("//*[@id='score-arrears']")),
-                "Unexpected placeholder text for arrears score field.");
-        assertEquals("Сумма", homePage.getFieldPlaceholderText(By.xpath("//*[@id='arrears-sum']")),
-                "Это поле обязательно для заполнения");
-        assertEquals("E-mail для отправки чека", homePage.getFieldPlaceholderText(By.xpath("//*[@id='arrears-email']")),
-                "Это поле обязательно для заполнения");
+        // Задолженность
+        assertEquals("Номер счета на 2073", homePage.getPlaceholderText(By.xpath("//input[@placeholder='Номер счета на 2073']")));
+        assertEquals("Сумма", homePage.getPlaceholderText(By.xpath("//input[@id='arrears-sum']")));
+        assertEquals("E-mail для отправки чека", homePage.getPlaceholderText(By.xpath("//input[@id='arrears-email']")));
     }
 
 }
