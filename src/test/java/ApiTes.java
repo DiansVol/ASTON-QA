@@ -14,7 +14,7 @@ public class ApiTes {
 
         Response response = given()
                 .when()
-                .get("/get")  // Здесь указываем конечную точку
+                .get("/get")  
                 .then()
                 .extract()
                 .response();
