@@ -73,7 +73,10 @@ public class HomePage {
     public String getFieldPlaceholderText(By locator) {
         return driver.findElement(locator).getAttribute("Заполнить");
     }
-
+    public String getPlaceholderText(By locator) {
+        WebElement element = driver.findElement(locator);
+        return element.getAttribute("placeholder");
+    }
 
 
 }
