@@ -64,7 +64,38 @@ class ChromeTe {
     void testContinueButton() {
         homePage.enterPhoneNumber("297777777");
         homePage.enterAmount("10");
-        homePage.clickContinueButton();
+        driver.findElement(By.xpath("//form[@class='pay-form opened']//button[@class='button button__default ']")).click();
+
+        // Проверяем отображение суммы
+        String expectedAmount = "10";
+        String displayedAmount = driver.findElement(By.xpath("//div[@class='pay-description__cost']/span")).getText();
+        assertEquals(expectedAmount, displayedAmount, "Отображаемая сумма не совпадает.");
+
+        // Проверяем текст на кнопке
+        String buttonText = driver.findElement(By.xpath("//button[@class='colored disabled']")).getText();
+        assertEquals(expectedAmount, buttonText, "Текст на кнопке не совпадает.");
+
+        // Проверяем номер телефона
+        String displayedPhoneNumber = driver.findElement(By.xpath("//div[@class='pay-description__text']/span")).getText();
+        assertEquals("297777777", displayedPhoneNumber, "Номер телефона не совпадает.");
+
+        // Проверяем тексты для ввода карты
+        String cardNumberLabel = driver.findElement(By.xpath("//label[@class='ng-tns-c46-1 ng-star-inserted']")).getText();
+        String expiryDateLabel = driver.findElement(By.xpath("//label[@class='ng-tns-c46-4 ng-star-inserted']")).getText();
+        String cvcLabel = driver.findElement(By.xpath("//label[@class='ng-tns-c46-5 ng-star-inserted']")).getText();
+        String cardHolderNameLabel = driver.findElement(By.xpath("//label[@class='ng-tns-c46-3 ng-star-inserted']")).getText();
+
+        assertEquals("Номер карты", cardNumberLabel, "Текст для номера карты не совпадает.");
+        assertEquals("Срок действия", expiryDateLabel, "Текст для срока действия не совпадает.");
+        assertEquals("CVC", cvcLabel, "Текст для CVC не совпадает.");
+        assertEquals("Имя держателя (как на карте)", cardHolderNameLabel, "Текст для имени держателя не совпадает.");
+
+        // Проверяем наличие иконок платежных систем
+        boolean hasPaymentSystemIcons = driver.findElements(By.xpath("//div[@class='cards-brands cards-brands__container ng-tns-c61-0 ng-trigger ng-trigger-brandsState ng-star-inserted']")).isEmpty();
+        assertTrue(hasPaymentSystemIcons, "Иконки платежных систем отсутствуют.");
+
+
+    }
     }
     @Test
     @Order(5)
