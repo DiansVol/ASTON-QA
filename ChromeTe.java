@@ -75,7 +75,7 @@ class ChromeTe {
         phoneNumberField.sendKeys("297777777");
 
         WebElement priceField = driver.findElement(By.xpath("//input[@placeholder='Сумма']"));
-        priceField.sendKeys("100");
+        priceField.sendKeys("10");
 
         WebElement continueButton = driver.findElement(By.xpath
                 ("//form[@class='pay-form opened']//button[@class='button button__default ']"));
