@@ -12,21 +12,17 @@ public class DeleteRequest {
     public void testDeleteRequest() {
         RestAssured.baseURI = "https://postman-echo.com";
 
-        // Если нужно передать параметры, вы можете использовать queryParam или pathParam
-        // Пример передачи параметра, если это необходимо
         Response response = given()
-                .queryParam("key", "value")  // Пример параметра для DELETE
+                .queryParam("key", "value") 
                 .when()
-                .delete("/delete")  // Конечная точка
+                .delete("/delete") 
                 .then()
                 .extract()
                 .response();
 
-        // Проверка статуса ответа
         assertEquals(200, response.getStatusCode(), "Ожидаемый код состояния 200");
 
-        // Проверка тела ответа, если нужно
         assertEquals("value", response.jsonPath().getString("args.key"), "Key параметра не соответствует");
-        // В зависимости от API, вы можете проверить другие поля в ответе, если присутствуют
+
     }
 }
