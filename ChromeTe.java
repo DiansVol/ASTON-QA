@@ -68,7 +68,7 @@ class ChromeTe {
 
         // Проверяем отображение суммы
         String expectedAmount = "10";
-        String displayedAmount = driver.findElement(By.xpath("//div[@class='pay-description__cost']/span")).getText();
+        String displayedAmount = driver.findElement(By.xpath("//div[@class='pay-description__cost']/span[1]")).getText();
         assertEquals(expectedAmount, displayedAmount, "Отображаемая сумма не совпадает.");
 
         // Проверяем текст на кнопке
