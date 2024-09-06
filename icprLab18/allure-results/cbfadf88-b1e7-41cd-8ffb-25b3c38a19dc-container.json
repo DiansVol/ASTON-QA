@@ -1,0 +1,1 @@
+{"uuid":"cbfadf88-b1e7-41cd-8ffb-25b3c38a19dc","name":"ChromeTe","children":["d249c667-55ba-469c-b50a-12d1bdfd7f5a"],"befores":[{"name":"setupAll","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1725432607509,"stop":1725432608410}],"afters":[],"start":1725432607456,"stop":1725432615307}
